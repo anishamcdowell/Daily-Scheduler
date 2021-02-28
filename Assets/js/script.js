@@ -31,23 +31,12 @@ saveBtnEl.on("click", function() {
   localStorage.setItem(time, value);
   });
 
-//for loops with i value = 8. use localStorage.getItem[i]
-// select time block via id of i
-// .children to get the textarea
-// textarea.value(localStorage.getItem(i))
-
 //Display events in local storage
 function displayEvents() {
   for (var i = 8; i < 8 && i <= 21; i++) {
-    document.getElementById().children(".textarea");
-  };
+    document.getElementById(i).children(".textarea");
+  }
   $(".textarea").val(localStorage.getItem(i));
-  return;
 };
 
 displayEvents();
-
-// for (var i = 8; i < 8 && i <= 21; i++) {
-//   document.getElementById(i).children(".textarea");
-//   textarea.value(localStorage.getItem(i));
-// }
