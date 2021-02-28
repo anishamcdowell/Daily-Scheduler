@@ -1,50 +1,48 @@
-// localStorage.getItem(userInput);
-
 //Display current day in header
 var currentDayEL =  $("#currentDay");
 var currentDay = moment().format("dddd, MMM Do, YYYY");
 currentDayEL.text(currentDay);
 
-//Timeblocks for standard business hours
+//Timeblocks color coded by present, past, and future time
 function getTime () {
   var currentHour = moment().hour();
     console.log(currentHour);
     $(".time-block").each(function() {
-    var elementHour = $(this).attr("id").split("-")[1];
+    var elementHour = $(this).attr("id")
     if (elementHour < currentHour) {
       $(this).addClass("past")
-    } else if ( elementHour === currentHour) {
-      $(this).addClass("present")
+    } else if (elementHour > currentHour) {
+      $(this).addClass("future")
     } else {
-      $(this).addClass("future");
+      $(this).addClass("present");
     }
   })
 
 }
 
-getTime()
+getTime();
 
+//Capture user input from any textarea and save to local storage
+var saveBtnEl = $(".saveBtn");
 
-//Caputure user input from any textarea and save to local storage
-function captureInput() {
-  $(".textarea").each(function() {
-    $(".saveBtn").on("click", function() {
-      var userInput = $(".textarea").val();
-      localStorage.setItem("userInput", userInput);
-      console.log(userInput);
-      })
-    })
+saveBtnEl.on("click", function() {
+  var time = $(this).parent().attr("id");
+  var value = $(this).siblings(".textarea").val();
+  localStorage.setItem(time, value);
+  });
+
+//for loops with i value = 8. use localStorage.getItem[i]
+// select time block via id of i
+// .children to get the textarea
+// textarea.value(localStorage.getItem(i))
+
+//Display events in local storage
+function displayEvents() {
+  for (var i = 8; i < 8 && i <= 21; i++) {
+    document.getElementById().children(".textarea");
   };
+  $(".textarea").val(localStorage.getItem(i));
+  return;
+};
 
-captureInput();
-
-//Click save button for individual time blocks
-var x = {
-  name: 2,
-}
-
-
-//Text for events saved to local storage
-
-
-//Refresh page and saved events persist
+displayEvents();
