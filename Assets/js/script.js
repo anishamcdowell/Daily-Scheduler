@@ -46,3 +46,8 @@ function displayEvents() {
 };
 
 displayEvents();
+
+// for (var i = 8; i < 8 && i <= 21; i++) {
+//   document.getElementById(i).children(".textarea");
+//   textarea.value(localStorage.getItem(i));
+// }
